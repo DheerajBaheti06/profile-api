@@ -20,22 +20,21 @@ module.exports = (req, res) => {
 
   const profilePath = path.join(process.cwd(), 'profile.json');
 
+  res.setHeader('Content-Type', 'application/json');
+
   fs.readFile(profilePath, 'utf8', (err, raw) => {
     if (err) {
       const code = err.code === 'ENOENT' ? 404 : 500;
       res.statusCode = code;
-      res.setHeader('Content-Type', 'application/json');
       return res.end(JSON.stringify({ error: err.code === 'ENOENT' ? 'profile.json not found' : 'failed to read profile.json' }));
     }
 
     try {
       const profile = JSON.parse(raw);
       res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
       return res.end(JSON.stringify(profile));
     } catch (parseErr) {
       res.statusCode = 500;
-      res.setHeader('Content-Type', 'application/json');
       return res.end(JSON.stringify({ error: 'invalid JSON in profile.json' }));
     }
   });

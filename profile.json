@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "schema": "com.dheeraj.profile.v1",
+    "version": "1.0.1",
+    "lastUpdated": "2025-12-02",
+    "public": true,
+    "author": "Dheeraj Baheti"
+  },
+
+  "identity": {
+    "fullName": "Dheeraj Baheti",
+    "role": "Software Developer",
+    "location": {
+      "city": "Raipur",
+      "state": "Chhattisgarh",
+      "country": "India",
+      "pincode": "492001"
+    }
+  },
+
+  "contact": {
+    "email": "bahetidheera7@gmail.com",
+    "phone": "+91-9584433460"
+  },
+
+  "links": {
+    "github": "https://github.com/DheerajBaheti06",
+    "linkedin": "https://www.linkedin.com/in/dheeraj-baheti1",
+    "resume": "https://UPLOAD-YOUR-RESUME-URL-HERE.pdf"
+  },
+
+  "experience": [
+    {
+      "id": "exp-001",
+      "slug": "solysian-tech-internship",
+      "company": "Solysian Tech",
+      "role": "Full Stack Developer Intern",
+      "start": "2025-04",
+      "end": "present",
+      "location": "Hyderabad, India",
+      "visibility": "public",
+      "summary": [
+        "Developed and maintained full-stack web applications",
+        "Implemented authentication systems and dashboards",
+        "Built backend logic for user management and subscriptions",
+        "Integrated payment gateways including Stripe and Razorpay",
+        "Worked on API integrations and technical documentation"
+      ],
+      "technologies": [
+        "Next.js",
+        "MERN Stack",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Stripe",
+        "Razorpay"
+      ]
+    }
+  ],
+
+  "skills": {
+    "frontend": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "Accertinity UI",
+      "Shadcn UI"
+    ],
+    "backend": [
+      "Node.js",
+      "Express.js",
+      "JWT Authentication",
+      "PostgreSQL",
+      "Prisma ORM"
+    ],
+    "tools": [
+      "Postman",
+      "Git",
+      "GitHub"
+    ],
+    "languages": [
+      "C",
+      "C++",
+      "SQL",
+      "Java (Fundamentals)"
+    ]
+  },
+
+  "projects": [
+    {
+      "id": "proj-001",
+      "slug": "production-backend",
+      "visibility": "public",
+      "category": "Backend",
+      "title": "Production Backend System",
+      "features": [
+        "JWT-based authentication",
+        "User management system",
+        "Avatar and cover image uploads using Cloudinary",
+        "Production-ready clean architecture"
+      ],
+      "tags": ["Node.js", "JWT", "Backend", "API"],
+      "link": "https://github.com/DheerajBaheti06/backend"
+    },
+    {
+      "id": "proj-002",
+      "slug": "ecommerce-backend",
+      "visibility": "public",
+      "category": "Backend",
+      "title": "E-Commerce Backend",
+      "features": [
+        "Role-based access control",
+        "Product management system",
+        "Pagination and advanced filtering",
+        "Scalable architecture"
+      ],
+      "tags": ["E-Commerce", "Backend", "API", "PostgreSQL"],
+      "link": "https://github.com/DheerajBaheti06/e-commerce_W"
+    },
+    {
+      "id": "proj-003",
+      "slug": "currency-converter",
+      "visibility": "public",
+      "category": "Frontend",
+      "title": "Currency Converter Application",
+      "features": [
+        "Real-time currency conversion",
+        "Reusable input components",
+        "Custom React hooks"
+      ],
+      "tags": ["React", "API", "Hooks", "Frontend"],
+      "link": "https://github.com/DheerajBaheti06/react-projects/tree/main/currency-converter"
+    },
+    {
+      "id": "proj-004",
+      "slug": "password-generator",
+      "visibility": "public",
+      "category": "Frontend",
+      "title": "Password Generator",
+      "features": [
+        "Customizable password length",
+        "Option toggles for special characters and numbers",
+        "One-click copy functionality"
+      ],
+      "tags": ["React", "Security", "UI"],
+      "link": "https://github.com/DheerajBaheti06/react-projects/tree/main/password-generator"
+    },
+    {
+      "id": "proj-005",
+      "slug": "music-academy-ui",
+      "visibility": "public",
+      "category": "UI",
+      "title": "Music Academy UI",
+      "features": [
+        "Modern responsive interface",
+        "Component-based layout design"
+      ],
+      "tags": ["UI", "Design", "Frontend"],
+      "link": "https://github.com/DheerajBaheti06/music"
+    }
+  ],
+
+  "education": [
+    {
+      "id": "edu-001",
+      "degree": "Bachelor of Technology (Computer Science Engineering)",
+      "institution": "SSIPMT",
+      "location": "Raipur, India",
+      "year": "2023"
+    },
+    {
+      "id": "edu-002",
+      "degree": "High School Diploma",
+      "institution": "MVM-1",
+      "location": "Raipur, India"
+    }
+  ],
+
+  "certificates": [
+    {
+      "id": "cert-001",
+      "slug": "solysian-tech-internship",
+      "visibility": "public",
+      "title": "Full Stack Developer Internship",
+      "issuer": "Solysian Tech",
+      "url": "https://github.com/DheerajBaheti06/Achievement/blob/main/solysian%20tech%20intern%20offer%20letter.pdf"
+    },
+    {
+      "id": "cert-002",
+      "slug": "psychometric-test",
+      "visibility": "public",
+      "title": "Psychometric Test Certificate",
+      "issuer": "Assessment Body",
+      "url": "https://github.com/DheerajBaheti06/Achievement/blob/main/certificates/Psychometric%20test.pdf"
+    },
+    {
+      "id": "cert-003",
+      "slug": "zscaler-cybersecurity",
+      "visibility": "public",
+      "title": "Fundamentals of Cybersecurity",
+      "issuer": "Zscaler",
+      "url": "https://github.com/DheerajBaheti06/Achievement/blob/main/certificates/Zscaler.pdf"
+    },
+    {
+      "id": "cert-004",
+      "slug": "ef-set",
+      "visibility": "public",
+      "title": "EF Standard English Test",
+      "issuer": "EF",
+      "url": "https://github.com/DheerajBaheti06/Achievement/blob/main/certificates/EF%20SET%20Certificate.pdf"
+    }
+  ],
+
+  "additionalInfo": {
+    "familiarWith": [
+      "MERN Blog Application",
+      "Appwrite integration",
+      "NextAuth and OAuth authentication",
+      "Subscription management",
+      "Payment gateway integration"
+    ]
+  }
+}

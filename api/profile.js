@@ -3,10 +3,12 @@ const path = require('path');
 
 module.exports = (req, res) => {
   // CORS headers - must be set FIRST, before any other response
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  const origin = req.headers.origin || '*';
+  res.setHeader('Access-Control-Allow-Origin', origin);
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS, HEAD');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization');
   res.setHeader('Access-Control-Max-Age', '86400');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 
   // Handle preflight request
   if (req.method === 'OPTIONS') {

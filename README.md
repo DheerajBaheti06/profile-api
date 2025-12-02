@@ -1,40 +1,48 @@
 # Profile API (Vercel-ready)
 
-This repository exposes your `profile.json` via a Vercel Serverless Function and includes a simple frontend to fetch it.
+This repository exposes your `profile.json` via serverless functions under the `api/` folder. It's intended to be an API-only project (no frontend served from the root).
 
-Files added:
-- `api/profile.js` — serverless API that returns the contents of `profile.json` as JSON
-- `index.html` — simple frontend which fetches `/api/profile`
-- `package.json` — minimal manifest with a `start` script for local dev with Vercel CLI
+Endpoints
 
-How to deploy
+- `GET /api/profile` — returns the contents of `profile.json` as JSON with `Content-Type: application/json`.
+- `GET /api/profile.json` — alias that returns the same JSON payload (convenient for direct API consumption).
 
-1. Push this repository to GitHub.
-2. In Vercel, import the GitHub repo and deploy (Vercel detects the `api/` folder automatically).
+Local testing
 
-How to test locally
-
-1. Install Vercel CLI:
+1. Install Vercel CLI (optional but recommended for local serverless testing):
 
 ```bash
 npm install -g vercel
 ```
 
-2. Run local dev server:
+2. Run the local dev server:
 
 ```bash
 vercel dev
 ```
 
-3. Open `http://localhost:3000` to view the frontend, or `http://localhost:3000/api/profile` to view raw JSON.
-
-Fetch example (from any client):
+3. Test the API:
 
 ```bash
-curl https://<your-vercel-project>.vercel.app/api/profile
+# raw JSON
+curl -i http://localhost:3000/api/profile.json
+
+# or
+curl -i http://localhost:3000/api/profile
 ```
+
+Deploy
+
+1. Push this repository to GitHub.
+2. Import the repo into Vercel (or connect the GitHub repo) and deploy; Vercel will detect the `api/` folder and create serverless functions.
 
 Notes
 
-- The API reads `profile.json` at startup. If you update `profile.json` after deployment, redeploy to Vercel to pick up changes.
-- CORS is enabled so you can fetch the API from other origins.
+- `api/profile.js` reads `profile.json` from the repository root per-request and returns proper HTTP status codes:
+	- `200` — success
+	- `404` — `profile.json` not found
+	- `405` — method not allowed
+	- `500` — server error / invalid JSON
+- CORS is enabled so the endpoints can be called from browsers or external services.
+- If you want the repository to be purely API (no static files), keep `index.html` removed so the root won't serve an HTML page.
+

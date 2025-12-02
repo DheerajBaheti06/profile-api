@@ -1,17 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// Read profile.json once at startup
-const profilePath = path.join(__dirname, '..', 'profile.json');
-let profile = {};
-try {
-  const raw = fs.readFileSync(profilePath, 'utf8');
-  profile = JSON.parse(raw);
-} catch (err) {
-  // keep profile empty and return an error in handler if needed
-  console.error('Failed to read profile.json:', err.message);
-}
-
 module.exports = (req, res) => {
   // Basic CORS so the endpoint can be used from anywhere
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,13 +12,31 @@ module.exports = (req, res) => {
     return res.end();
   }
 
-  if (!profile || Object.keys(profile).length === 0) {
-    res.statusCode = 500;
-    res.setHeader('Content-Type', 'application/json');
-    return res.end(JSON.stringify({ error: 'profile.json not found or invalid' }));
+  if (req.method !== 'GET') {
+    res.statusCode = 405;
+    res.setHeader('Allow', 'GET,OPTIONS');
+    return res.end();
   }
 
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(profile));
+  const profilePath = path.join(process.cwd(), 'profile.json');
+
+  fs.readFile(profilePath, 'utf8', (err, raw) => {
+    if (err) {
+      const code = err.code === 'ENOENT' ? 404 : 500;
+      res.statusCode = code;
+      res.setHeader('Content-Type', 'application/json');
+      return res.end(JSON.stringify({ error: err.code === 'ENOENT' ? 'profile.json not found' : 'failed to read profile.json' }));
+    }
+
+    try {
+      const profile = JSON.parse(raw);
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      return res.end(JSON.stringify(profile));
+    } catch (parseErr) {
+      res.statusCode = 500;
+      res.setHeader('Content-Type', 'application/json');
+      return res.end(JSON.stringify({ error: 'invalid JSON in profile.json' }));
+    }
+  });
 };
